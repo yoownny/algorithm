@@ -25,16 +25,27 @@ public class Main {
 //		}
 
 		// 선택 정렬 (selection)
-		for (int i = 0; i < n - 1; i++) {
-			int min = i;
-			for (int j = i + 1; j < n; j++) {
-				if (arr[min] > arr[j]) {
-					min = j;
-				}
+//		for (int i = 0; i < n - 1; i++) {
+//			int min = i;
+//			for (int j = i + 1; j < n; j++) {
+//				if (arr[min] > arr[j]) {
+//					min = j;
+//				}
+//			}
+//			int tmp = arr[min];
+//			arr[min] = arr[i];
+//			arr[i] = tmp;
+//		}
+
+		// 삽입 정렬 (insertion)
+		for (int i = 1; i < n; i++) {
+			int target = arr[i];
+			int j = i - 1;
+			while (j >= 0 && arr[j] > target) {
+				arr[j + 1] = arr[j];
+				j--;
 			}
-			int tmp = arr[min];
-			arr[min] = arr[i];
-			arr[i] = tmp;
+			arr[j + 1] = target;
 		}
 
 		// 출력
